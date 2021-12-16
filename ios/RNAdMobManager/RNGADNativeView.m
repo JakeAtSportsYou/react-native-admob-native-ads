@@ -182,8 +182,13 @@ BOOL *nonPersonalizedAds;
 }
 
 - (void)setRequestNonPersonalizedAdsOnly:(BOOL *)requestNonPersonalizedAdsOnly {
-
-    nonPersonalizedAds = requestNonPersonalizedAdsOnly;
+    //
+    // Note: requestNonPersonalizedAdsOnly becomes "NO" always.
+    // - We are overriding this value for testing!
+    //nonPersonalizedAds = YES;
+    *nonPersonalizedAds = YES;
+    
+    //nonPersonalizedAds = requestNonPersonalizedAdsOnly;
     GADExtras *extras = [[GADExtras alloc] init];
 
     if (nonPersonalizedAds) {
